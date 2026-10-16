@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: smuct-notecraft-ai-studio
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ADMIN_PASSWORD
+        value: rafik2026
+      - key: GOOGLE_SHEET_ID
+        value: 1Dg4poYmMlhm6WDUl0XYwhgSR33BDsi7DjGCQOLqz0R0
