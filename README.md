@@ -98,37 +98,59 @@ smuct_notecraft_ai_studio/
 ## 💻 Quick Start & Installation
 
 ### Prerequisites
-- Python 3.10 or higher
-- Bash / Linux / macOS or WSL2 for Windows
-- Google Gemini API Key (get free at [Google AI Studio](https://aistudio.google.com/app/apikey))
+- Python 3.10 or higher installed on your computer ([Download Python](https://www.python.org/downloads/))
+- Google Gemini API Key (Get a free key from [Google AI Studio](https://aistudio.google.com/app/apikey))
 
-### 1. Clone the Repository
+---
+
+### 1. Clone or Download the Repository
 ```bash
 git clone https://github.com/0xrafiKaji/smuct-notecraft-ai-studio.git
 cd smuct-notecraft-ai-studio
 ```
+*(Or click **Code ➔ Download ZIP** on GitHub and extract it).*
 
-### 2. Configure Environment
+---
+
+### 2. Configure Environment (Optional)
 ```bash
 cp .env.example .env
 ```
-Edit `.env` and set your Gemini API key (or enter it via the studio UI modal at runtime):
+Open `.env` and paste your Gemini API key:
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
 PORT=8000
 ADMIN_PASSWORD=rafik2026
 ```
+> **Note:** If you don't edit `.env`, you can also enter your Gemini API Key directly inside the web browser UI when prompted!
 
-### 3. Run the Studio (One-Click Launcher)
+---
+
+### 3. Run the Studio (One-Click)
+
+#### 🪟 On Windows:
+Simply double-click **`run.bat`** (or open Command Prompt / PowerShell in the folder and run `run.bat`).
+It will automatically create the virtual environment, install requirements, and open the app in your default browser at `http://localhost:8000`.
+
+#### 🐧 On Linux / macOS:
 ```bash
 chmod +x run.sh
 ./run.sh
 ```
 
-The script will automatically:
-1. Create a Python virtual environment (`venv`).
-2. Install all required dependencies from `requirements.txt`.
-3. Launch the FastAPI server with hot-reloading at **`http://localhost:8000`**.
+---
+
+### ☁️ Free 1-Click Cloud Deployment (Render / Railway)
+
+You can also host this for free on [Render](https://render.com):
+1. Create a new **Web Service** on Render and connect this repository.
+2. Configure settings:
+   - **Environment:** `Python 3`
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
+3. Add Environment Variable:
+   - `GEMINI_API_KEY` = *your_gemini_api_key*
+4. Click **Deploy Web Service**!
 
 ---
 

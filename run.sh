@@ -26,7 +26,7 @@ if [ ! -d "venv" ]; then
     source venv/bin/activate
     echo "⬇️  Installing required packages..."
     pip install --upgrade pip
-    pip install -r requirements.txt httpx requests
+    pip install -r requirements.txt
 else
     source venv/bin/activate
 fi
